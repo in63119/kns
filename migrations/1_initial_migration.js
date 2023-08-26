@@ -1,5 +1,6 @@
 const KNS = artifacts.require("KNS");
 const { makeKNSData } = require("../makeABI");
+const { hash } = require("../test/test");
 
 module.exports = async function (deployer, network, accounts) {
   if (network === "goerli") {
@@ -22,10 +23,12 @@ module.exports = async function (deployer, network, accounts) {
     console.log("------------- Contract를 배포합니다. --------------");
     console.log(" ");
 
-    await deployer.deploy(KNS);
-    const KNSContract = await KNS.deployed();
+    // await deployer.deploy(KNS);
+    // const KNSContract = await KNS.deployed();
 
-    makeKNSData(KNSContract.address);
+    // makeKNSData(KNSContract.address);
+    const hash = hash("insu");
+    console.log(hash);
 
     console.log(" ");
     console.log("------------- ABI를 만들었습니다. --------------");

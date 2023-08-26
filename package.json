@@ -7,13 +7,14 @@
   "license": "MIT",
   "scripts": {
     "deploy": "node deploy.js",
-    "test": "node test/testKNS.js"
+    "test": "node test/test.js"
   },
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.1.13",
     "axios": "^1.4.0",
     "caver-js": "^1.10.2",
     "dotenv": "^16.3.1",
+    "eth-ens-namehash": "^2.0.8",
     "path": "^0.12.7",
     "shelljs": "^0.8.5",
     "truffle": "^5.11.2",
