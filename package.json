@@ -10,6 +10,7 @@
     "test": "node test/test.js"
   },
   "dependencies": {
+    "@ensdomains/ens-contracts": "^0.0.22",
     "@truffle/hdwallet-provider": "^2.1.13",
     "axios": "^1.4.0",
     "caver-js": "^1.10.2",

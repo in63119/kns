@@ -233,12 +233,6 @@ const jsonToPinata = async (metaData, owner) => {
   }
 };
 
-export const labelHash = (label) => {
-  const result = caver.utils.sha3(caver.utils.utf8ToHex(label));
-
-  return result;
-};
-
 if (
   whatToUse === "이름으로 주소 확인" ||
   whatToUse === "주소로 이름 확인" ||
@@ -249,7 +243,4 @@ if (
 } else if (whatToUse === "등록" || whatToUse === "레코드 등록") {
   console.log("등록 테스트를 시작합니다.");
   register(whatToUse);
-} else {
-  console.log(whatToUse);
-  labelHash(whatToUse);
 }
