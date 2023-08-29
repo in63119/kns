@@ -1,13 +1,11 @@
-pragma solidity ^0.8.4;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.4;
 
+import "./IABIResolver.sol";
 import "../ResolverBase.sol";
 
-contract ABIResolver is ResolverBase {
-    bytes4 constant private ABI_INTERFACE_ID = 0x2203ab56;
-
-    event ABIChanged(bytes32 indexed node, uint256 indexed contentType);
-
-    mapping(bytes32=>mapping(uint256=>bytes)) abis;
+abstract contract ABIResolver is IABIResolver, ResolverBase {
+    mapping(uint64 => mapping(bytes32 => mapping(uint256 => bytes))) versionable_abis;
 
     /**
      * Sets the ABI associated with an ENS node.
@@ -17,11 +15,15 @@ contract ABIResolver is ResolverBase {
      * @param contentType The content type of the ABI
      * @param data The ABI data.
      */
-    function setABI(bytes32 node, uint256 contentType, bytes calldata data) external authorised(node) {
+    function setABI(
+        bytes32 node,
+        uint256 contentType,
+        bytes calldata data
+    ) external virtual authorised(node) {
         // Content types must be powers of 2
         require(((contentType - 1) & contentType) == 0);
 
-        abis[node][contentType] = data;
+        versionable_abis[recordVersions[node]][node][contentType] = data;
         emit ABIChanged(node, contentType);
     }
 
@@ -33,11 +35,23 @@ contract ABIResolver is ResolverBase {
      * @return contentType The content type of the return value
      * @return data The ABI data
      */
-    function ABI(bytes32 node, uint256 contentTypes) external view returns (uint256, bytes memory) {
-        mapping(uint256=>bytes) storage abiset = abis[node];
+    function ABI(
+        bytes32 node,
+        uint256 contentTypes
+    ) external view virtual override returns (uint256, bytes memory) {
+        mapping(uint256 => bytes) storage abiset = versionable_abis[
+            recordVersions[node]
+        ][node];
 
-        for (uint256 contentType = 1; contentType <= contentTypes; contentType <<= 1) {
-            if ((contentType & contentTypes) != 0 && abiset[contentType].length > 0) {
+        for (
+            uint256 contentType = 1;
+            contentType <= contentTypes;
+            contentType <<= 1
+        ) {
+            if (
+                (contentType & contentTypes) != 0 &&
+                abiset[contentType].length > 0
+            ) {
                 return (contentType, abiset[contentType]);
             }
         }
@@ -45,7 +59,11 @@ contract ABIResolver is ResolverBase {
         return (0, bytes(""));
     }
 
-    function supportsInterface(bytes4 interfaceID) public pure returns(bool) {
-        return interfaceID == ABI_INTERFACE_ID || super.supportsInterface(interfaceID);
+    function supportsInterface(
+        bytes4 interfaceID
+    ) public view virtual override returns (bool) {
+        return
+            interfaceID == type(IABIResolver).interfaceId ||
+            super.supportsInterface(interfaceID);
     }
 }

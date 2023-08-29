@@ -1,0 +1,355 @@
+{
+  "contractName": "IABIResolver",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "node",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "contentType",
+          "type": "uint256"
+        }
+      ],
+      "name": "ABIChanged",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "node",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "contentTypes",
+          "type": "uint256"
+        }
+      ],
+      "name": "ABI",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"node\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"contentType\",\"type\":\"uint256\"}],\"name\":\"ABIChanged\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"node\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"contentTypes\",\"type\":\"uint256\"}],\"name\":\"ABI\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"ABI(bytes32,uint256)\":{\"params\":{\"contentTypes\":\"A bitwise OR of the ABI formats accepted by the caller.\",\"node\":\"The ENS node to query\"},\"returns\":{\"_0\":\"contentType The content type of the return value\",\"_1\":\"data The ABI data\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"ABI(bytes32,uint256)\":{\"notice\":\"Returns the ABI associated with an ENS node. Defined in EIP205.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/profiles/IABIResolver.sol\":\"IABIResolver\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/profiles/IABIResolver.sol\":{\"keccak256\":\"0x85b373d02d19374fe570af407f459768285704bf7f30ab17c30eabfb5a10e4c3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2046ce3d92d29806d7b447f7ab4227f19b0b2e5c75fd5b4a3fcaef7fe2442141\",\"dweb:/ipfs/QmRgnfWjFetrSJngkhU7Yui1ZcK1MeatvZDpvUTYNuYnND\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.8.4;\n\ninterface IABIResolver {\n    event ABIChanged(bytes32 indexed node, uint256 indexed contentType);\n\n    /**\n     * Returns the ABI associated with an ENS node.\n     * Defined in EIP205.\n     * @param node The ENS node to query\n     * @param contentTypes A bitwise OR of the ABI formats accepted by the caller.\n     * @return contentType The content type of the return value\n     * @return data The ABI data\n     */\n    function ABI(\n        bytes32 node,\n        uint256 contentTypes\n    ) external view returns (uint256, bytes memory);\n}\n",
+  "sourcePath": "/Users/instant/Desktop/kns/contracts/profiles/IABIResolver.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/profiles/IABIResolver.sol",
+    "exportedSymbols": {
+      "IABIResolver": [
+        3765
+      ]
+    },
+    "id": 3766,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3746,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:22"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IABIResolver",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 3765,
+        "linearizedBaseContracts": [
+          3765
+        ],
+        "name": "IABIResolver",
+        "nameLocation": "68:12:22",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "eventSelector": "aa121bbeef5f32f5961a2a28966e769023910fc9479059ee3495d4c1a696efe3",
+            "id": 3752,
+            "name": "ABIChanged",
+            "nameLocation": "93:10:22",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3751,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3748,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "node",
+                  "nameLocation": "120:4:22",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3752,
+                  "src": "104:20:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3747,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "104:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3750,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "contentType",
+                  "nameLocation": "142:11:22",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3752,
+                  "src": "126:27:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3749,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "126:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "103:51:22"
+            },
+            "src": "87:68:22"
+          },
+          {
+            "documentation": {
+              "id": 3753,
+              "nodeType": "StructuredDocumentation",
+              "src": "161:310:22",
+              "text": " Returns the ABI associated with an ENS node.\n Defined in EIP205.\n @param node The ENS node to query\n @param contentTypes A bitwise OR of the ABI formats accepted by the caller.\n @return contentType The content type of the return value\n @return data The ABI data"
+            },
+            "functionSelector": "2203ab56",
+            "id": 3764,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "ABI",
+            "nameLocation": "485:3:22",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3758,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3755,
+                  "mutability": "mutable",
+                  "name": "node",
+                  "nameLocation": "506:4:22",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3764,
+                  "src": "498:12:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3754,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "498:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3757,
+                  "mutability": "mutable",
+                  "name": "contentTypes",
+                  "nameLocation": "528:12:22",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3764,
+                  "src": "520:20:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3756,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "520:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "488:58:22"
+            },
+            "returnParameters": {
+              "id": 3763,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3760,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3764,
+                  "src": "570:7:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3759,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "570:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3762,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3764,
+                  "src": "579:12:22",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3761,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "579:5:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "569:23:22"
+            },
+            "scope": 3765,
+            "src": "476:117:22",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3766,
+        "src": "58:537:22",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:564:22"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.15",
+  "updatedAt": "2023-08-28T16:08:08.335Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "ABI(bytes32,uint256)": {
+        "params": {
+          "contentTypes": "A bitwise OR of the ABI formats accepted by the caller.",
+          "node": "The ENS node to query"
+        },
+        "returns": {
+          "_0": "contentType The content type of the return value",
+          "_1": "data The ABI data"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "ABI(bytes32,uint256)": {
+        "notice": "Returns the ABI associated with an ENS node. Defined in EIP205."
+      }
+    },
+    "version": 1
+  }
+}

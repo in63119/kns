@@ -22,8 +22,8 @@ const makeData = (json, address) => {
   });
 };
 
-const makeKNSData = async (address) => {
-  makeFile("/data/artifacts/KNS.json", "/data/KNSABI.json", address);
+const makeKNSData = async (name, address) => {
+  makeFile(`/data/artifacts/${name}.json`, `/data/${name}ABI.json`, address);
 };
 
 module.exports = {

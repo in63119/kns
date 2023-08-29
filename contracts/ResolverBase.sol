@@ -1,30 +1,34 @@
-pragma solidity ^0.8.4;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.4;
 
-contract ResolverBase {
-    bytes4 private constant INTERFACE_META_ID = 0x01ffc9a7;
+import "@openzeppelin/contracts/utils/introspection/ERC165.sol";
+import "./profiles/IVersionableResolver.sol";
 
-    function supportsInterface(bytes4 interfaceID) public pure returns(bool) {
-        return interfaceID == INTERFACE_META_ID;
-    }
+abstract contract ResolverBase is ERC165, IVersionableResolver {
+    mapping(bytes32 => uint64) public recordVersions;
 
-    function isAuthorised(bytes32 node) internal view returns(bool);
+    function isAuthorised(bytes32 node) internal view virtual returns (bool);
 
     modifier authorised(bytes32 node) {
         require(isAuthorised(node));
         _;
     }
 
-    function bytesToAddress(bytes memory b) internal pure returns(address payable a) {
-        require(b.length == 20);
-        assembly {
-            a := div(mload(add(b, 32)), exp(256, 12))
-        }
+    /**
+     * Increments the record version associated with an ENS node.
+     * May only be called by the owner of that node in the ENS registry.
+     * @param node The node to update.
+     */
+    function clearRecords(bytes32 node) public virtual authorised(node) {
+        recordVersions[node]++;
+        emit VersionChanged(node, recordVersions[node]);
     }
 
-    function addressToBytes(address a) internal pure returns(bytes memory b) {
-        b = new bytes(20);
-        assembly {
-            mstore(add(b, 32), mul(a, exp(256, 12)))
-        }
+    function supportsInterface(
+        bytes4 interfaceID
+    ) public view virtual override returns (bool) {
+        return
+            interfaceID == type(IVersionableResolver).interfaceId ||
+            super.supportsInterface(interfaceID);
     }
 }

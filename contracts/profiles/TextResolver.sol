@@ -1,13 +1,11 @@
-pragma solidity ^0.8.4;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.4;
 
 import "../ResolverBase.sol";
+import "./ITextResolver.sol";
 
-contract TextResolver is ResolverBase {
-    bytes4 constant private TEXT_INTERFACE_ID = 0x59d1d43c;
-
-    event TextChanged(bytes32 indexed node, string indexed indexedKey, string key);
-
-    mapping(bytes32=>mapping(string=>string)) texts;
+abstract contract TextResolver is ITextResolver, ResolverBase {
+    mapping(uint64 => mapping(bytes32 => mapping(string => string))) versionable_texts;
 
     /**
      * Sets the text data associated with an ENS node and key.
@@ -16,9 +14,13 @@ contract TextResolver is ResolverBase {
      * @param key The key to set.
      * @param value The text data value to set.
      */
-    function setText(bytes32 node, string calldata key, string calldata value) external authorised(node) {
-        texts[node][key] = value;
-        emit TextChanged(node, key, key);
+    function setText(
+        bytes32 node,
+        string calldata key,
+        string calldata value
+    ) external virtual authorised(node) {
+        versionable_texts[recordVersions[node]][node][key] = value;
+        emit TextChanged(node, key, key, value);
     }
 
     /**
@@ -27,11 +29,18 @@ contract TextResolver is ResolverBase {
      * @param key The text data key to query.
      * @return The associated text data.
      */
-    function text(bytes32 node, string calldata key) external view returns (string memory) {
-        return texts[node][key];
+    function text(
+        bytes32 node,
+        string calldata key
+    ) external view virtual override returns (string memory) {
+        return versionable_texts[recordVersions[node]][node][key];
     }
 
-    function supportsInterface(bytes4 interfaceID) public pure returns(bool) {
-        return interfaceID == TEXT_INTERFACE_ID || super.supportsInterface(interfaceID);
+    function supportsInterface(
+        bytes4 interfaceID
+    ) public view virtual override returns (bool) {
+        return
+            interfaceID == type(ITextResolver).interfaceId ||
+            super.supportsInterface(interfaceID);
     }
 }

@@ -1,0 +1,211 @@
+{
+  "contractName": "IExtendedResolver",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "name",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "resolve",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"name\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"resolve\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/profiles/IExtendedResolver.sol\":\"IExtendedResolver\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/profiles/IExtendedResolver.sol\":{\"keccak256\":\"0x5d81521cfae7d9a4475d27533cd8ed0d3475d369eb0674fd90ffbdbdf292faa3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d244d15588785044b54c453ab6dc51c616ab70cb8b9e687d3e54565bcae97760\",\"dweb:/ipfs/QmXz4ZZBTFogdkdTV1mcE3ywvL2agKVZHLNNeRHCKVruYM\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\ninterface IExtendedResolver {\n    function resolve(\n        bytes memory name,\n        bytes memory data\n    ) external view returns (bytes memory);\n}\n",
+  "sourcePath": "/Users/instant/Desktop/kns/contracts/profiles/IExtendedResolver.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/profiles/IExtendedResolver.sol",
+    "exportedSymbols": {
+      "IExtendedResolver": [
+        3899
+      ]
+    },
+    "id": 3900,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3889,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:29"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IExtendedResolver",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 3899,
+        "linearizedBaseContracts": [
+          3899
+        ],
+        "name": "IExtendedResolver",
+        "nameLocation": "67:17:29",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "9061b923",
+            "id": 3898,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "resolve",
+            "nameLocation": "100:7:29",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3894,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3891,
+                  "mutability": "mutable",
+                  "name": "name",
+                  "nameLocation": "130:4:29",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3898,
+                  "src": "117:17:29",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3890,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "117:5:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3893,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "157:4:29",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3898,
+                  "src": "144:17:29",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3892,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "144:5:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "107:60:29"
+            },
+            "returnParameters": {
+              "id": 3897,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3896,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3898,
+                  "src": "191:12:29",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 3895,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "191:5:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "190:14:29"
+            },
+            "scope": 3899,
+            "src": "91:114:29",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3900,
+        "src": "57:150:29",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:176:29"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.15",
+  "updatedAt": "2023-08-28T16:08:08.339Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

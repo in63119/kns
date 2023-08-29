@@ -1,0 +1,356 @@
+{
+  "contractName": "IPubkeyResolver",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "node",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "x",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "y",
+          "type": "bytes32"
+        }
+      ],
+      "name": "PubkeyChanged",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "node",
+          "type": "bytes32"
+        }
+      ],
+      "name": "pubkey",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "x",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "y",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"node\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"x\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"y\",\"type\":\"bytes32\"}],\"name\":\"PubkeyChanged\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"node\",\"type\":\"bytes32\"}],\"name\":\"pubkey\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"x\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"y\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"pubkey(bytes32)\":{\"params\":{\"node\":\"The ENS node to query\"},\"returns\":{\"x\":\"The X coordinate of the curve point for the public key.\",\"y\":\"The Y coordinate of the curve point for the public key.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"pubkey(bytes32)\":{\"notice\":\"Returns the SECP256k1 public key associated with an ENS node. Defined in EIP 619.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/profiles/IPubkeyResolver.sol\":\"IPubkeyResolver\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/profiles/IPubkeyResolver.sol\":{\"keccak256\":\"0x69748947093dd2fda9ddcebd0adf19a6d1e7600df1d4b1462a0417156caddca7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bc2f86e50bd17c38fb10feb577d88d8970c585017a391ef10e3aaa3d50f81555\",\"dweb:/ipfs/QmaxLx2pqCUxf9W2dusfviZ9aSiTuVwuekGo73rjvmGifE\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.8.4;\n\ninterface IPubkeyResolver {\n    event PubkeyChanged(bytes32 indexed node, bytes32 x, bytes32 y);\n\n    /**\n     * Returns the SECP256k1 public key associated with an ENS node.\n     * Defined in EIP 619.\n     * @param node The ENS node to query\n     * @return x The X coordinate of the curve point for the public key.\n     * @return y The Y coordinate of the curve point for the public key.\n     */\n    function pubkey(bytes32 node) external view returns (bytes32 x, bytes32 y);\n}\n",
+  "sourcePath": "/Users/instant/Desktop/kns/contracts/profiles/IPubkeyResolver.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/profiles/IPubkeyResolver.sol",
+    "exportedSymbols": {
+      "IPubkeyResolver": [
+        3958
+      ]
+    },
+    "id": 3959,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3939,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:32"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IPubkeyResolver",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 3958,
+        "linearizedBaseContracts": [
+          3958
+        ],
+        "name": "IPubkeyResolver",
+        "nameLocation": "68:15:32",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "eventSelector": "1d6f5e03d3f63eb58751986629a5439baee5079ff04f345becb66e23eb154e46",
+            "id": 3947,
+            "name": "PubkeyChanged",
+            "nameLocation": "96:13:32",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3946,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3941,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "node",
+                  "nameLocation": "126:4:32",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3947,
+                  "src": "110:20:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3940,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "110:7:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3943,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "x",
+                  "nameLocation": "140:1:32",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3947,
+                  "src": "132:9:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3942,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "132:7:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3945,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "y",
+                  "nameLocation": "151:1:32",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3947,
+                  "src": "143:9:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3944,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "143:7:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "109:44:32"
+            },
+            "src": "90:64:32"
+          },
+          {
+            "documentation": {
+              "id": 3948,
+              "nodeType": "StructuredDocumentation",
+              "src": "160:294:32",
+              "text": " Returns the SECP256k1 public key associated with an ENS node.\n Defined in EIP 619.\n @param node The ENS node to query\n @return x The X coordinate of the curve point for the public key.\n @return y The Y coordinate of the curve point for the public key."
+            },
+            "functionSelector": "c8690233",
+            "id": 3957,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "pubkey",
+            "nameLocation": "468:6:32",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3951,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3950,
+                  "mutability": "mutable",
+                  "name": "node",
+                  "nameLocation": "483:4:32",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3957,
+                  "src": "475:12:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3949,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "475:7:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "474:14:32"
+            },
+            "returnParameters": {
+              "id": 3956,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3953,
+                  "mutability": "mutable",
+                  "name": "x",
+                  "nameLocation": "520:1:32",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3957,
+                  "src": "512:9:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3952,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "512:7:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3955,
+                  "mutability": "mutable",
+                  "name": "y",
+                  "nameLocation": "531:1:32",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3957,
+                  "src": "523:9:32",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 3954,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "523:7:32",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "511:22:32"
+            },
+            "scope": 3958,
+            "src": "459:75:32",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3959,
+        "src": "58:478:32",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:505:32"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.15",
+  "updatedAt": "2023-08-28T16:08:08.343Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "pubkey(bytes32)": {
+        "params": {
+          "node": "The ENS node to query"
+        },
+        "returns": {
+          "x": "The X coordinate of the curve point for the public key.",
+          "y": "The Y coordinate of the curve point for the public key."
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "pubkey(bytes32)": {
+        "notice": "Returns the SECP256k1 public key associated with an ENS node. Defined in EIP 619."
+      }
+    },
+    "version": 1
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "name": "ens_test",
+  "name": "kns",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/in63119/ens_test.git",
+  "repository": "https://github.com/in63119/kns.git",
   "author": "<in63119@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -10,15 +10,14 @@
     "test": "node test/test.js"
   },
   "dependencies": {
-    "@ensdomains/ens-contracts": "^0.0.22",
+    "@openzeppelin/contracts": "^4.9.3",
     "@truffle/hdwallet-provider": "^2.1.13",
-    "axios": "^1.4.0",
     "caver-js": "^1.10.2",
     "dotenv": "^16.3.1",
     "eth-ens-namehash": "^2.0.8",
+    "fs": "^0.0.1-security",
     "path": "^0.12.7",
     "shelljs": "^0.8.5",
-    "truffle": "^5.11.2",
-    "web3": "^4.0.3"
+    "truffle": "^5.11.2"
   }
 }

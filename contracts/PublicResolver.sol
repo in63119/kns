@@ -1,7 +1,7 @@
-pragma solidity ^0.8.4;
+pragma solidity ^0.5.0;
 pragma experimental ABIEncoderV2;
 
-import "@ensdomains/ens/contracts/ENS.sol";
+import "./ENS.sol";
 import "./profiles/ABIResolver.sol";
 import "./profiles/AddrResolver.sol";
 import "./profiles/ContentHashResolver.sol";
